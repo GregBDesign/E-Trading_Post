@@ -1,0 +1,66 @@
+:root {
+    --font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+    --text-color: #FFFFFF;
+    --pal-primary-1: #F89F8D;
+    --pal-primary-2: #A4B1AD;
+    --pal-primary-3: #9AABBD;
+    --pal-secondary-1: #76FFFF;
+    --pal-secondary-2: #DCCD40;
+}
+
+*, *:after, *:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: var(--font-family);
+}
+
+/* Header */
+header {
+    height: 10vh;
+    background-color: var(--pal-primary-3);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img {
+    height: 5vh;
+    fill: aqua;
+}
+
+.hamb-menu {
+    font-size: 2rem;
+    display: inline;
+    padding: 0%;
+    display: none;
+}
+
+h1 {
+    font-weight: 500;
+}
+
+/* Media queries */
+@media (max-width: 1366px) {
+    .hamb-menu {
+        display: inline;
+    }
+
+    #hamb-links {
+        display: none;
+        /* display: block; */
+    }
+}
