@@ -12,15 +12,23 @@
 </head>
 <body>
     <header>
-        <nav>
+        <div>
             <h1>E-Trading Post</h1>
-            <img src="./public/assets/bars-solid.svg" class="hamb-menu">
-            <div id="hamb-links">
+            <nav>
                 <a>Explore</a>
                 <a>Sell</a>
-                <a>My Account</a>
-            </div>
-        </nav>
+                <a>Update</a>
+            </nav>
+        </div>
     </header>
+    <main>
+        <section>
+            <h2>Explore All Items</h2>
+        </section>
+    </main>
+    <footer>
+        <p>&reg; E-Trading Post 2021</p>
+    </footer>
+
 </body>
 </html>
