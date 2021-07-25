@@ -46,16 +46,21 @@ header div img {
     height: 4vh;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-weight: 500;
 }
 
 header a {
+    text-decoration: none;
     font-size: 1.25rem;
 }
 
-header a:hover {
+header a:hover, header a:visited:hover {
     color: var(--pal-secondary-1);
+}
+
+header a:visited {
+    color: var(--text-color);
 }
 
 nav {
@@ -80,7 +85,7 @@ main {
     flex-grow: 1;
 }
 
-/* Heading section */
+/* Heading section - index.php*/
 section:first-child {
     width: 90%;
     background-color: var(--pal-primary-1);
@@ -90,6 +95,64 @@ section:first-child {
     align-items: center;
     justify-content: center;
     color: var(--text-color);
+}
+
+/* All items - index.php */
+section:nth-child(2) {
+    width: 90%;
+    background-color: var(--pal-primary-3);
+    margin: 2vh auto;
+    color: var(--text-color);
+    padding: 2% 2%;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+thead {
+    border-bottom: 1px solid var(--text-color);
+}
+
+th {
+    width: 20%;
+}
+
+tr {
+    height: 3vh;
+}
+
+/* a - sell.php */
+.flex {
+    display: flex;
+}
+
+.sell-main {
+    flex-direction: column;
+}
+
+.sell-top {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sell-top-l {
+    flex-direction: column;
+}
+
+.sell-mid {
+    flex-direction: column;
+}
+
+.sell-lwr {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sell-lwr-col {
+    flex-direction: column;
 }
 
 /* Media queries */
@@ -106,5 +169,21 @@ section:first-child {
 
     nav {
         width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    h3 {
+        font-size: 1rem;
+    }
+
+    td {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .hidden {
+        display: none;
     }
 }

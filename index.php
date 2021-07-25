@@ -1,34 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="./public/styles.css" rel="stylesheet">
-    <title>E-Trading Post</title>
-</head>
-<body>
-    <header>
-        <div>
-            <h1>E-Trading Post</h1>
-            <nav>
-                <a>Explore</a>
-                <a>Sell</a>
-                <a>Update</a>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <section>
-            <h2>Explore All Items</h2>
-        </section>
-    </main>
-    <footer>
-        <p>&reg; E-Trading Post 2021</p>
-    </footer>
-
-</body>
-</html>
+<?php
+    require_once('./inc/header.php')
+?>
+<main>
+    <section>
+        <h2>Explore All Items</h2>
+    </section>
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th><h3>Title</h3></th>
+                    <th class="hidden"><h3>Category</h3></th>
+                    <th class="hidden"><h3>Price</h3></th>
+                    <th class="hidden"><h3>Duration</h3></th>
+                    <th class="hidden"><h3>Image</h3></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Test item</td>
+                    <td class="hidden">Test category</td>
+                    <td class="hidden">Test price</td>
+                    <td class="hidden">Test Duration</td>
+                    <td class="hidden">Test Image</td>
+                </tr>
+                <tr>
+                    <td>Test item</td>
+                    <td class="hidden">Test category</td>
+                    <td class="hidden">Test price</td>
+                    <td class="hidden">Test Duration</td>
+                    <td class="hidden">Test Image</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+<?php
+    require_once('./inc/footer.php')
+?>
