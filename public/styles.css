@@ -19,7 +19,6 @@ body {
     display: flex;
     flex-direction: column;
     font-family: var(--font-family);
-
     height: 100vh;
 }
 
@@ -50,16 +49,20 @@ h1, h2, h3 {
     font-weight: 500;
 }
 
-header a {
+header a{
     text-decoration: none;
     font-size: 1.25rem;
 }
 
-header a:hover, header a:visited:hover {
+a {
+    text-decoration: none;
+}
+
+header a:hover, header a:visited:hover, a:hover, a:visited:hover {
     color: var(--pal-secondary-1);
 }
 
-header a:visited {
+header a:visited, a:visited {
     color: var(--text-color);
 }
 
@@ -70,7 +73,7 @@ nav {
 }
 
 footer {
-    height: 5vh;
+    padding: 2% 0;
     background-color: var(--pal-primary-3);
     color: var(--text-color);
     display: flex;
@@ -129,8 +132,79 @@ tr {
     display: flex;
 }
 
+aside {
+    font-size: 0.8rem;
+    font-style: italic;
+    font-weight: 400;
+    color: #000;
+}
+
+input, aside {
+    margin: 0.5vh 0;
+}
+
 .sell-main {
     flex-direction: column;
+    margin: 0 5vw;
+}
+
+.sell-top, .sell-mid, .sell-lwr {
+    margin: 3vh 0;
+}
+
+.sell-main input[type="submit"] {
+    background-color: var(--pal-primary-1);
+    height: 5vh;
+    width: 25vw;
+    color: var(--text-color);
+    border-radius: 15px;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0;
+}
+
+.sell-main input[type="file"] {
+    height: 50%;
+    padding: 5%;
+    border: 3px solid var(--pal-secondary-2);
+    border-radius: 10px;
+}
+
+#sell-file::file-selector-button {
+    background-color: var(--pal-primary-1);
+    height: 80%;
+    width: 50%;
+    color: var(--text-color);
+    border-radius: 15px;
+    border: none;
+    font-size: 1rem;
+}
+
+.sell-submit {
+    display: flex;
+    justify-content: center;
+}
+
+.sell-main input, .sell-main select, .sell-main textarea {
+    font-family: var(--font-family);
+    height: 6vh;
+    padding: 2%;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+.sell-main input:focus, .sell-main select:focus, .sell-main textarea:focus {
+    border-color: var(--pal-secondary-1);
+    outline: none;
+}
+
+.sell-main textarea {
+    height: 10vh;
+    resize: none;
+}
+
+.sell-container {
+    margin: 0 5vw;
 }
 
 .sell-top {
@@ -138,12 +212,17 @@ tr {
     justify-content: space-between;
 }
 
-.sell-top-l {
+.sell-top-l, .sell-top-r, .sell-lwr-col {
     flex-direction: column;
+    width: 40%;
 }
 
 .sell-mid {
     flex-direction: column;
+}
+
+.sell-mid aside {
+    width: 50%;
 }
 
 .sell-lwr {
@@ -152,7 +231,7 @@ tr {
 }
 
 .sell-lwr-col {
-    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Media queries */
@@ -179,6 +258,14 @@ tr {
 
     td {
         font-size: 0.75rem;
+    }
+
+    .sell-top, .sell-lwr {
+        flex-direction: column;
+    }
+
+    .sell-top-l, .sell-top-r, .sell-lwr-col {
+        width: 100%;
     }
 }
 

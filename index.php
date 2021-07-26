@@ -23,6 +23,7 @@
                     <td class="hidden">Test price</td>
                     <td class="hidden">Test Duration</td>
                     <td class="hidden">Test Image</td>
+                    <td class="hidden"><a href="/">Update</a></td>
                 </tr>
                 <tr>
                     <td>Test item</td>
@@ -30,6 +31,7 @@
                     <td class="hidden">Test price</td>
                     <td class="hidden">Test Duration</td>
                     <td class="hidden">Test Image</td>
+                    <td class="hidden"><a href="/">Update</a></td>
                 </tr>
             </tbody>
         </table>
