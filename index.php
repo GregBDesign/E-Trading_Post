@@ -1,5 +1,7 @@
 <?php
-    require_once('./inc/header.php')
+    require_once('./inc/header.php');
+    // All items query in seperate file for modularity
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/Diploma/504-A1/www/func/allitems.php');
 ?>
 <main>
     <section>
@@ -17,22 +19,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Test item</td>
-                    <td class="hidden">Test category</td>
-                    <td class="hidden">Test price</td>
-                    <td class="hidden">Test Duration</td>
-                    <td class="hidden">Test Image</td>
-                    <td class="hidden"><a href="/">Update</a></td>
-                </tr>
-                <tr>
-                    <td>Test item</td>
-                    <td class="hidden">Test category</td>
-                    <td class="hidden">Test price</td>
-                    <td class="hidden">Test Duration</td>
-                    <td class="hidden">Test Image</td>
-                    <td class="hidden"><a href="/">Update</a></td>
-                </tr>
+                <?php
+                    for($i = 0; $i < count($allItems); $i++) { ?>
+                        <tr>
+                            <td><a href="./views/viewitem.php?id=<?php echo $i ?>"><?php echo $allItems[$i]['title'] ?></a></td>
+                            <td class="hidden"><?php echo $allItems[$i]['category'] ?></td>
+                            <td class="hidden"><?php echo '$' . $allItems[$i]['price'] ?></td>
+                            <td class="hidden"><?php echo $allItems[$i]['duration'] . ' Days' ?></td>
+                            <td class="hidden"><img src="<?php echo "./public/assets/images/" . $allItems[$i]['image'] ?>" alt="<?php echo $allItems[$i]['title'] ?>"></td>
+                            <td class="hidden"><a href="/">Update</a></td>
+                        </tr>
+                <?php } ?>
             </tbody>
         </table>
     </section>
@@ -40,3 +37,5 @@
 <?php
     require_once('./inc/footer.php')
 ?>
+
+<!-- TO DO: MAKE A BIDS TABLE AND AUCTION TABLE -->

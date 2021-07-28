@@ -127,6 +127,12 @@ tr {
     height: 3vh;
 }
 
+td img {
+    width: 15vw;
+    height: auto;
+    padding: 2vh 0;
+}
+
 /* a - sell.php */
 .flex {
     display: flex;
@@ -152,7 +158,7 @@ input, aside {
     margin: 3vh 0;
 }
 
-.sell-main input[type="submit"] {
+.sell-main input[type="submit"], button {
     background-color: var(--pal-primary-1);
     height: 5vh;
     width: 25vw;
@@ -232,6 +238,20 @@ input, aside {
 
 .sell-lwr-col {
     justify-content: space-between;
+}
+
+/* Item view - viewitem.php */
+.item-view {
+    flex-direction: column;
+    margin: 1vh 0;
+}
+
+.view-top-l {
+    justify-content: center;
+}
+
+.item-view h3 {
+    color: var(--pal-secondary-2);
 }
 
 /* Media queries */
