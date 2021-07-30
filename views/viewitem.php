@@ -1,7 +1,5 @@
 <?php
     require_once('../inc/header.php');
-    // All items query in seperate file for modularity
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/Diploma/504-A1/www/func/allitems.php');
 ?>
 <main>
     <section>

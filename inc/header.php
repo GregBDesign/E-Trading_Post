@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once("conn.php");
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/Diploma/504-A1/www/func/allitems.php');
 ?>
 
 <!DOCTYPE html>

@@ -22,6 +22,10 @@ body {
     height: 100vh;
 }
 
+.flex {
+    display: flex;
+}
+
 /* Header */
 header {
     min-height: 10vh;
@@ -134,8 +138,8 @@ td img {
 }
 
 /* a - sell.php */
-.flex {
-    display: flex;
+label span {
+    font-style: italic;
 }
 
 aside {
@@ -238,6 +242,10 @@ input, aside {
 
 .sell-lwr-col {
     justify-content: space-between;
+}
+
+.err {
+    color: var(--pal-secondary-2);
 }
 
 /* Item view - viewitem.php */

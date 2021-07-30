@@ -1,5 +1,5 @@
 <?php
-    require_once('./inc/header.php')
+    require_once('./inc/header.php');
 ?>
 <main>
     <section>
@@ -7,7 +7,7 @@
     </section>
     <section class="flex sell-main">
         <div class="sell-container">
-            <form id="addItem" action="." method="POST" enctype="multipart/form-data">
+            <form id="addItem" action="./proc/sellproc.php" method="POST" enctype="multipart/form-data">
                 <div class="flex sell-top">
                     <div class="flex sell-top-l">
                         <label for="type">Sale type</label>
@@ -20,8 +20,17 @@
                         </aside>
                         <label for="category">Category</label>
                             <select name="category" id="category">
-                                <option value="1">First</option>
-                                <option value="2">Second</option>
+                                <option value="1">Motors</option>
+                                <option value="2">Fashion</option>
+                                <option value="3">Books, Movies & Music</option>
+                                <option value="4">Electronics</option>
+                                <option value="5">Collectibles & Art</option>
+                                <option value="6">Home & Garden</option>
+                                <option value="7">Sporting Goods</option>
+                                <option value="8">Toys & Hobbies</option>
+                                <option value="9">Business & Industrial</option>
+                                <option value="10">Health & Beauty</option>
+                                <option value="11">Other & Misc</option>
                             </select>
                         <aside>
                             <p>Explore E-Trading Post categories ahead of time to help you choose the best place to list your item.
@@ -29,7 +38,7 @@
                         </aside>
                     </div>
                     <div class="flex sell-top-r">
-                        <label for="image">Upload image</label>
+                        <label for="image">Upload image - <span>Optional</span></label>
                             <input id="sell-file" type="file" name="image" id="image">
                         <aside>
                             <p>Make your description come to life with vivid photos</p>
@@ -37,23 +46,26 @@
                     </div>
                 </div>
                 <div class="flex sell-mid">
-                    <label for="title">Title</label>
-                        <input type="text" name="title" id="title">
+                    <label for="title">Title <span class="err"><?php if(isset($_SESSION["errors"]["title"])){ echo $_SESSION["errors"]["title"];} ?></span></label>
+                        <input type="text" name="title" id="title" value="<?php if(isset($_SESSION["formData"]["title"])){ echo $_SESSION["formData"]["title"];}?>" required>
                     <aside>
                         <p>Be clear, complete and descriptive. Your title should include words buyers would search for when looking for your item</p>
                     </aside>
-                    <label for="description">Description</label>
-                        <textarea id="description" name="description" placeholder="Here’s your chance to really describe and promote your item. Be clear and complete. Include information such as brand, type, colour, specifications etc"></textarea>
+                    <label for="description">Description <span class="err"><?php if(isset($_SESSION["errors"]["description"])){ echo $_SESSION["errors"]["description"]; }?></span></label>
+                        <textarea id="description" name="description" required><?php if(isset($_SESSION["formData"]["description"])){ echo $_SESSION["formData"]["description"]; }?></textarea>
+                        <aside>
+                            <p>Here’s your chance to really describe and promote your item. Be clear and complete. Include information such as brand, type, colour, specifications etc</p>
+                        </aside>
                 </div>
                 <div class="flex sell-lwr">
                     <div class="flex sell-lwr-col">
-                        <label for="price">Price</label>
-                            <input type="text" id="price" name="price" placeholder="$">
+                        <label for="price">Price <span class="err"><?php if(isset($_SESSION["errors"]["price"])){ echo $_SESSION["errors"]["price"]; }?></span></label>
+                            <input type="number" id="price" name="price" value="<?php if(isset($_SESSION["formData"]["price"])){ echo $_SESSION["formData"]["price"];}?>" placeholder="$">
                         <aside>
                             <p>What will your starting price be for bids or total price for fixed price sale?</p>
                         </aside>
-                        <label for="qty">Quantity</label>
-                            <input type="number" id="qty" name="qty">
+                        <label for="qty">Quantity <span class="err"><?php if(isset($_SESSION["errors"]["qty"])){ echo $_SESSION["errors"]["qty"]; }?></span></label>
+                            <input type="number" id="qty" name="qty" value="<?php if(isset($_SESSION["formData"]["qty"])){ echo $_SESSION["formData"]["qty"];}?>" required>
                         <aside>
                             <p>How many items are you selling?</p>
                         </aside>
@@ -75,14 +87,14 @@
                         <aside>
                             <p>How long do you want your listing to run?</p>
                         </aside>
-                        <label for="location">Location</label>
-                            <input type="text" name="location" id="location">
+                        <label for="location">Location <span class="err"><?php if(isset($_SESSION["errors"]["location"])){ echo $_SESSION["errors"]["location"]; }?></span></label>
+                            <input type="text" name="location" id="location" value="<?php if(isset($_SESSION["formData"]["location"])){ echo $_SESSION["formData"]["location"]; }?>" required>
                         <aside>
                             <p>Enter your city or suburb</p>
                         </aside>
                         <label for="post">Postage method</label>
                             <select name="post" id="post">
-                                <option value="1">Post</option>
+                                <option value="1">Mail</option>
                                 <option value="2">Courier</option>
                                 <option value="3">Collection</option>
                             </select>

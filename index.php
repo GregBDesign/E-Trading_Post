@@ -1,7 +1,11 @@
 <?php
     require_once('./inc/header.php');
-    // All items query in seperate file for modularity
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/Diploma/504-A1/www/func/allitems.php');
+
+    unset($_SESSION["errors"]);
+    unset($_SESSION["formData"]);
+    
+    // Debugging - ISSUES WITH NEW ITEMS AND RETRIEVING ALL ITEMS
+    print_r($allItems[2]);
 ?>
 <main>
     <section>
@@ -38,4 +42,5 @@
     require_once('./inc/footer.php')
 ?>
 
-<!-- TO DO: MAKE A BIDS TABLE AND AUCTION TABLE -->
+<!-- TO DO: MAKE A BIDS TABLE AND AUCTION TABLE
+    MAKE ALLITEMS INTO A FUNCTION SO IT CAN BE CALLED ONCE ITEM IS ADDED -->
