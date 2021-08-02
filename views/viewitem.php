@@ -1,5 +1,9 @@
 <?php
     require_once('../inc/header.php');
+
+    if($_GET['id'] >= count($allItems) || $_GET['id'] < 0 ){
+        header("Location: ../index.php");
+    }
 ?>
 <main>
     <section>

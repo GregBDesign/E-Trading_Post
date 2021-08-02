@@ -53,25 +53,44 @@
     $formErrs["location"] == "" ? $formReady = true : null;
 
     if($formReady){
-        try {
-            $addItem = "INSERT INTO item VALUES (0, :title, :description, 'test.png', :price, :duration, :category, :format, :quantity, :location, :payment, :postage)";
-            $addItem = $conn->prepare($addItem);
-            $addItem->bindParam(":title", $title);
-            $addItem->bindParam(":description", $description);
-            $addItem->bindParam(":price", $price);
-            $addItem->bindParam(":duration", $duration);
-            $addItem->bindParam(":category", $category);
-            $addItem->bindParam(":format", $saleType);
-            $addItem->bindParam(":quantity", $qty);
-            $addItem->bindParam(":location", $loc);
-            $addItem->bindParam(":payment", $payMethod);
-            $addItem->bindParam(":postage", $postage);
-            $addItem->execute();
-
-            header("Location: ../index.php?status=add");
-        } catch (PDOException $e) {
-            echo "A database error has occured";
-            error_log($e->getMessage(), 0);
+        if(isset($_GET['edit'])){
+            try {
+                $updateItem = "UPDATE item SET description = :description, location = :location, payment = :payment, postage = :postage WHERE itemId = :id";
+                $updateItem = $conn->prepare($updateItem);
+                $updateItem->bindParam(":description", $description);
+                $updateItem->bindParam(":location", $loc);
+                $updateItem->bindParam(":payment", $payMethod);
+                $updateItem->bindParam(":postage", $postage);
+                $updateItem->bindParam(":id", $_GET['edit']);
+                $updateItem->execute();
+    
+                header("Location: ../index.php?status=edit");
+            } catch (PDOException $e) {
+                echo "A database error has occured - edit";
+                error_log($e->getMessage(), 0);
+            }
+        } else {
+            try {
+                $addItem = "INSERT INTO item VALUES (0, :title, :description, 'test.png', :price, :duration, :category, 
+                    :format, :quantity, :location, :payment, :postage)";
+                $addItem = $conn->prepare($addItem);
+                $addItem->bindParam(":title", $title);
+                $addItem->bindParam(":description", $description);
+                $addItem->bindParam(":price", $price);
+                $addItem->bindParam(":duration", $duration);
+                $addItem->bindParam(":category", $category);
+                $addItem->bindParam(":format", $saleType);
+                $addItem->bindParam(":quantity", $qty);
+                $addItem->bindParam(":location", $loc);
+                $addItem->bindParam(":payment", $payMethod);
+                $addItem->bindParam(":postage", $postage);
+                $addItem->execute();
+    
+                header("Location: ../index.php?status=add");
+            } catch (PDOException $e) {
+                echo "A database error has occured - add";
+                error_log($e->getMessage(), 0);
+            } 
         }
     } else {
         $formArr = [
@@ -83,8 +102,8 @@
         ];
         $_SESSION["errors"] = $formErrs;
         $_SESSION["formData"] = $formArr;
-        header("Location: ../sell.php");
+        isset($_GET['edit']) ? header("Location:../views/updateitem.php?id={$_GET['edit']}") : header("Location: ../sell.php");
     }
 
-    // TO DO: IMAGE AND UPDATE SQL
+    // TO DO: IMAGE AND ADD CONFIRMATION MESSAGE TO INDEX PAGE
 ?>

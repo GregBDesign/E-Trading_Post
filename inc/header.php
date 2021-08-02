@@ -23,7 +23,6 @@
         <nav>
             <a href="/Diploma/504-A1/www/index.php">Explore</a>
             <a href="/Diploma/504-A1/www/sell.php">Sell</a>
-            <a>Update</a>
         </nav>
     </div>
 </header>

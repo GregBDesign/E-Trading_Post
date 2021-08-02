@@ -3,9 +3,6 @@
 
     unset($_SESSION["errors"]);
     unset($_SESSION["formData"]);
-    
-    // Debugging - ISSUES WITH NEW ITEMS AND RETRIEVING ALL ITEMS
-    print_r($allItems[2]);
 ?>
 <main>
     <section>
@@ -31,7 +28,7 @@
                             <td class="hidden"><?php echo '$' . $allItems[$i]['price'] ?></td>
                             <td class="hidden"><?php echo $allItems[$i]['duration'] . ' Days' ?></td>
                             <td class="hidden"><img src="<?php echo "./public/assets/images/" . $allItems[$i]['image'] ?>" alt="<?php echo $allItems[$i]['title'] ?>"></td>
-                            <td class="hidden"><a href="/">Update</a></td>
+                            <td class="hidden"><a href="./views/updateitem.php?id=<?php echo $allItems[$i]['itemId']?>">Update</a></td>
                         </tr>
                 <?php } ?>
             </tbody>
@@ -41,6 +38,3 @@
 <?php
     require_once('./inc/footer.php')
 ?>
-
-<!-- TO DO: MAKE A BIDS TABLE AND AUCTION TABLE
-    MAKE ALLITEMS INTO A FUNCTION SO IT CAN BE CALLED ONCE ITEM IS ADDED -->

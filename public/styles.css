@@ -73,7 +73,7 @@ header a:visited, a:visited {
 nav {
     width: 40%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 footer {
@@ -260,6 +260,12 @@ input, aside {
 
 .item-view h3 {
     color: var(--pal-secondary-2);
+}
+
+/* Edit item - updateitem.php */
+.read-only {
+    opacity: 0.7;
+    border-color: rgba(118, 118, 118, 0.3);
 }
 
 /* Media queries */
