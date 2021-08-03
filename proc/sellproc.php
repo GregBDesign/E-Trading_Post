@@ -25,6 +25,7 @@
     $duration = $_POST["duration"];
     $loc = '';
     $postage = $_POST["post"];
+    $image = 'default.png';
 
     // formReady variable is a flag to be set to true when there are no issues in the error array
     $formReady = false;
@@ -52,6 +53,7 @@
     $formErrs["qty"] == "" &&
     $formErrs["location"] == "" ? $formReady = true : null;
 
+    // Validation checks are completed on both new and updated items
     if($formReady){
         if(isset($_GET['edit'])){
             try {
@@ -66,16 +68,17 @@
     
                 header("Location: ../index.php?status=edit");
             } catch (PDOException $e) {
-                echo "A database error has occured - edit";
+                header("Location:../index/php?status=dberr");
                 error_log($e->getMessage(), 0);
             }
         } else {
             try {
-                $addItem = "INSERT INTO item VALUES (0, :title, :description, 'test.png', :price, :duration, :category, 
+                $addItem = "INSERT INTO item VALUES (0, :title, :description, :image, :price, :duration, :category, 
                     :format, :quantity, :location, :payment, :postage)";
                 $addItem = $conn->prepare($addItem);
                 $addItem->bindParam(":title", $title);
                 $addItem->bindParam(":description", $description);
+                $addItem->bindParam(":image", $image);
                 $addItem->bindParam(":price", $price);
                 $addItem->bindParam(":duration", $duration);
                 $addItem->bindParam(":category", $category);
@@ -88,7 +91,7 @@
     
                 header("Location: ../index.php?status=add");
             } catch (PDOException $e) {
-                echo "A database error has occured - add";
+                header("Location:../index/php?status=dberr");
                 error_log($e->getMessage(), 0);
             } 
         }
@@ -105,5 +108,5 @@
         isset($_GET['edit']) ? header("Location:../views/updateitem.php?id={$_GET['edit']}") : header("Location: ../sell.php");
     }
 
-    // TO DO: IMAGE AND ADD CONFIRMATION MESSAGE TO INDEX PAGE
+    // TO DO: IMAGEs
 ?>

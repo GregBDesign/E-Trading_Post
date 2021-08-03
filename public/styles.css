@@ -104,8 +104,18 @@ section:first-child {
     color: var(--text-color);
 }
 
+/* Info section - index.php*/
+.info {
+    width: 90%;
+    background-color: var(--pal-secondary-2);
+    margin: 2vh auto;
+    color: var(--text-color);
+    padding: 2% 2%;
+    text-align: center;
+}
+
 /* All items - index.php */
-section:nth-child(2) {
+section:last-child {
     width: 90%;
     background-color: var(--pal-primary-3);
     margin: 2vh auto;

@@ -8,6 +8,22 @@
     <section>
         <h2>Explore All Items</h2>
     </section>
+    <?php 
+        if(isset($_GET['status'])){ ?>
+            <section class="info">
+                <?php switch($_GET['status']){
+                    case 'add':
+                        echo "<h3>Item added successfully</h3>";
+                        break;
+                    case 'edit':
+                        echo "<h3>Item edited successfully</h3>";
+                        break;
+                    case 'dberr':
+                        echo "<h3>There is a database error</h3>";
+                        break;
+                    } ?>
+            </section>
+        <?php } ?>
     <section>
         <table>
             <thead>
