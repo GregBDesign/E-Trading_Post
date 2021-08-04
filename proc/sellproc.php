@@ -14,6 +14,15 @@
         "location" => ""
     ];
 
+    // Image upload function
+    function imgUpload() {
+        $imgDir = $_SERVER['DOCUMENT_ROOT'] . '/Diploma/504-A1/www/public/assets/images/';
+        $imgBase = basename($_FILES["image"]["name"]);
+        $imgFile = $imgDir . $imgBase;
+        move_uploaded_file($_FILES["image"]["tmp_name"], $imgFile);
+        return $imgBase;
+    }
+
     // Variables declared for input and text area fields
     $saleType = $_POST["type"];
     $category = $_POST["category"];
@@ -25,7 +34,10 @@
     $duration = $_POST["duration"];
     $loc = '';
     $postage = $_POST["post"];
-    $image = 'default.png';
+    // TODO: Sort out editing of item w/out removing the current photo
+    if($_FILES["image"]["name"] != ""){
+        $image = imgUpload();
+    }
 
     // formReady variable is a flag to be set to true when there are no issues in the error array
     $formReady = false;
@@ -57,12 +69,13 @@
     if($formReady){
         if(isset($_GET['edit'])){
             try {
-                $updateItem = "UPDATE item SET description = :description, location = :location, payment = :payment, postage = :postage WHERE itemId = :id";
+                $updateItem = "UPDATE item SET description = :description, image = :image, location = :location, payment = :payment, postage = :postage WHERE itemId = :id";
                 $updateItem = $conn->prepare($updateItem);
                 $updateItem->bindParam(":description", $description);
                 $updateItem->bindParam(":location", $loc);
                 $updateItem->bindParam(":payment", $payMethod);
                 $updateItem->bindParam(":postage", $postage);
+                $updateItem->bindParam(":image", $image);
                 $updateItem->bindParam(":id", $_GET['edit']);
                 $updateItem->execute();
     
@@ -109,4 +122,5 @@
     }
 
     // TO DO: IMAGEs
+    
 ?>

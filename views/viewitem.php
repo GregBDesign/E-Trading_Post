@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="flex sell-top-r">
-                    <img src="<?php echo "../public/assets/images/" . $allItems[$_GET['id']]['image'] ?>" alt="<?php echo $allItems[$_GET['id']]['title'] ?>">
+                    <img src="<?php echo '../public/assets/images/' . $allItems[$_GET['id']]['image'] ?>" alt="<?php echo $allItems[$_GET['id']]['title'] ?>">
                 </div>
             </div>
             <div class="flex sell-lwr">

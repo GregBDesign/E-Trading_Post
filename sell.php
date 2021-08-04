@@ -39,7 +39,7 @@
                     </div>
                     <div class="flex sell-top-r">
                         <label for="image">Upload image - <span>Optional</span></label>
-                            <input id="sell-file" type="file" name="image" id="image">
+                            <input type="file" name="image" id="image">
                         <aside>
                             <p>Make your description come to life with vivid photos</p>
                         </aside>
