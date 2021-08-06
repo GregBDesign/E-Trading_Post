@@ -6,7 +6,7 @@
 ?>
 <main>
     <section>
-        <h2>Sell Your Item</h2>
+        <h2>Edit <?php echo $item[0]['title'] ?></h2>
     </section>
     <section class="flex sell-main">
         <div class="sell-container">
@@ -55,7 +55,7 @@
                         <p>Be clear, complete and descriptive. Your title should include words buyers would search for when looking for your item</p>
                     </aside>
                     <label for="description">Description <span class="err"><?php if(isset($_SESSION["errors"]["description"])){ echo $_SESSION["errors"]["description"]; }?></span></label>
-                        <textarea id="description" name="description" required><?php echo $item[0]['title']?></textarea>
+                        <textarea id="description" name="description" required><?php echo $item[0]['description']?></textarea>
                         <aside>
                             <p>Here’s your chance to really describe and promote your item. Be clear and complete. Include information such as brand, type, colour, specifications etc</p>
                         </aside>

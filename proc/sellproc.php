@@ -34,9 +34,12 @@
     $duration = $_POST["duration"];
     $loc = '';
     $postage = $_POST["post"];
-    // TODO: Sort out editing of item w/out removing the current photo
-    if($_FILES["image"]["name"] != ""){
+    
+    if($_FILES["image"]["name"] != "" && !isset($_GET['id'])){
         $image = imgUpload();
+    }
+    if($_FILES["image"]["name"] == "" && !isset($_GET['id'])){
+        $image = 'default.png';
     }
 
     // formReady variable is a flag to be set to true when there are no issues in the error array
@@ -68,23 +71,45 @@
     // Validation checks are completed on both new and updated items
     if($formReady){
         if(isset($_GET['edit'])){
-            try {
-                $updateItem = "UPDATE item SET description = :description, image = :image, location = :location, payment = :payment, postage = :postage WHERE itemId = :id";
-                $updateItem = $conn->prepare($updateItem);
-                $updateItem->bindParam(":description", $description);
-                $updateItem->bindParam(":location", $loc);
-                $updateItem->bindParam(":payment", $payMethod);
-                $updateItem->bindParam(":postage", $postage);
-                $updateItem->bindParam(":image", $image);
-                $updateItem->bindParam(":id", $_GET['edit']);
-                $updateItem->execute();
-    
-                header("Location: ../index.php?status=edit");
-            } catch (PDOException $e) {
-                header("Location:../index/php?status=dberr");
-                error_log($e->getMessage(), 0);
+            if($_FILES["image"]["name"] != "" ){
+                    try {
+                    // If the item is being edited and a new image uploaded
+                    $image = imgUpload();
+                    $updateItem = "UPDATE item SET description = :description, image = :image, location = :location, payment = :payment, postage = :postage WHERE itemId = :id";
+                    $updateItem = $conn->prepare($updateItem);
+                    $updateItem->bindParam(":description", $description);
+                    $updateItem->bindParam(":location", $loc);
+                    $updateItem->bindParam(":payment", $payMethod);
+                    $updateItem->bindParam(":postage", $postage);
+                    $updateItem->bindParam(":image", $image);
+                    $updateItem->bindParam(":id", $_GET['edit']);
+                    $updateItem->execute();
+        
+                    header("Location: ../index.php?status=edit");
+                    } catch (PDOException $e) {
+                        header("Location:../index/php?status=dberr");
+                        error_log($e->getMessage(), 0);
+                    }
+            } else {
+                // If the item is being edited and a new image isn't uploaded
+                try {
+                    $updateItem = "UPDATE item SET description = :description, location = :location, payment = :payment, postage = :postage WHERE itemId = :id";
+                    $updateItem = $conn->prepare($updateItem);
+                    $updateItem->bindParam(":description", $description);
+                    $updateItem->bindParam(":location", $loc);
+                    $updateItem->bindParam(":payment", $payMethod);
+                    $updateItem->bindParam(":postage", $postage);
+                    $updateItem->bindParam(":id", $_GET['edit']);
+                    $updateItem->execute();
+        
+                    header("Location: ../index.php?status=edit");
+                } catch (PDOException $e) {
+                    header("Location:../index/php?status=dberr");
+                    error_log($e->getMessage(), 0);
+                }
             }
         } else {
+            // New items to be added.
             try {
                 $addItem = "INSERT INTO item VALUES (0, :title, :description, :image, :price, :duration, :category, 
                     :format, :quantity, :location, :payment, :postage)";
@@ -109,6 +134,7 @@
             } 
         }
     } else {
+        // If there are errors with the input fields
         $formArr = [
             "title" => $title,
             "description" => $description,
@@ -120,7 +146,4 @@
         $_SESSION["formData"] = $formArr;
         isset($_GET['edit']) ? header("Location:../views/updateitem.php?id={$_GET['edit']}") : header("Location: ../sell.php");
     }
-
-    // TO DO: IMAGEs
-    
 ?>
