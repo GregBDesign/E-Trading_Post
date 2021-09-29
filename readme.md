@@ -15,3 +15,7 @@ This project was built with HTML, CSS, PHP and MyPHPAdmin. I designed the UI usi
 ![](https://res.cloudinary.com/dbdcclhzw/image/upload/v1632888011/Projects/E-Trading/ET2_avovew.png)
 ![](https://res.cloudinary.com/dbdcclhzw/image/upload/v1632888011/Projects/E-Trading/ET1_rjulwj.png)
 ![](https://res.cloudinary.com/dbdcclhzw/image/upload/v1632888010/Projects/E-Trading/ET3_ddq3jn.png)
+
+#### Licence
+MIT License
+Copyright (c) 2021 Greg Baugh
