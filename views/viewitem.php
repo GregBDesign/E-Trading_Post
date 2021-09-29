@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="flex sell-top-r">
-                    <img src="<?php echo '../public/assets/images/' . $allItems[$_GET['id']]['image'] ?>" alt="<?php echo $allItems[$_GET['id']]['title'] ?>">
+                    <img src="<?php echo $allItems[$_GET['id']]['image'] ?>" alt="<?php echo $allItems[$_GET['id']]['title'] ?>">
                 </div>
             </div>
             <div class="flex sell-lwr">
@@ -64,7 +64,7 @@
                     </div>
                 </div> 
             </div>
-            <form class="sell-submit" action="/Diploma/504-A1/www/index.php">
+            <form class="sell-submit" action="../index.php">
                 <input type="submit" value="Back to all items">
             </form>
         </div>

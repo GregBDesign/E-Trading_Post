@@ -1,5 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/Diploma/504-A1/www/inc/conn.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/www/inc/conn.php');
 
     function editItem($id, $db){
         try {

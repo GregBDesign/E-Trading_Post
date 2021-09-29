@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/Diploma/504-A1/www/inc/conn.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/www/inc/conn.php');
 
     unset($_SESSION["errors"]);
     unset($_SESSION["formData"]);
@@ -16,7 +16,7 @@
 
     // Image upload function
     function imgUpload() {
-        $imgDir = $_SERVER['DOCUMENT_ROOT'] . '/Diploma/504-A1/www/public/assets/images/';
+        $imgDir = $_SERVER['DOCUMENT_ROOT'] . '/www/public/assets/images/';
         $imgBase = basename($_FILES["image"]["name"]);
         $imgFile = $imgDir . $imgBase;
         move_uploaded_file($_FILES["image"]["tmp_name"], $imgFile);

@@ -41,7 +41,7 @@
                         <label for="image">Upload image - <span>Optional</span></label>
                             <input type="file" name="image" id="image" disabled>
                         <aside>
-                            <p>Make your description come to life with vivid photos</p>
+                            <p>Image upload is disabled for deployment due to cloud storage limitations</p>
                         </aside>
                     </div>
                 </div>
