@@ -1,5 +1,5 @@
 <?php
-    require_once('./inc/header.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/inc/header.php');
 ?>
 <main>
     <section>
@@ -108,5 +108,5 @@
     </section>
 </main>
 <?php
-    require_once('./inc/footer.php')
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/inc/footer.php');
 ?>
