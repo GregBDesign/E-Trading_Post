@@ -1,5 +1,5 @@
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/inc/conn.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/inc/connheroku.php');
 
     try {
         $retrieveItems = "SELECT * FROM item 
