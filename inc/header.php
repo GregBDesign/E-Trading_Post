@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="/www/public/styles.css" rel="stylesheet">
+    <link href="../public/styles.css" rel="stylesheet">
     <title>E-Trading Post</title>
 </head>
 <body>
@@ -21,8 +21,8 @@
     <div>
         <h1>E-Trading Post</h1>
         <nav>
-            <a href="/www/index.php">Explore</a>
-            <a href="/www/sell.php">Sell</a>
+            <a href="../index.php">Explore</a>
+            <a href="../sell.php">Sell</a>
         </nav>
     </div>
 </header>
