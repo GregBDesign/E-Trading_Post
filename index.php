@@ -1,6 +1,7 @@
 <?php
     // require_once('./inc/header.php');
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/www/inc/header.php');
+    // require_once($_SERVER['DOCUMENT_ROOT'] . '/www/inc/header.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/inc/header.php');
 
     unset($_SESSION["errors"]);
     unset($_SESSION["formData"]);
