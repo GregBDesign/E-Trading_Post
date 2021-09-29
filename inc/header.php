@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once("connheroku.php");
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/www/func/allitems.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/func/allitems.php');
 ?>
 
 <!DOCTYPE html>
