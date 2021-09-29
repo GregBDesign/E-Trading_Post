@@ -1,5 +1,5 @@
 # E-Trading Post
-## Auction site style purchasing web application
+## Auction site style web application
 v1.1
 
 E-Trading Post is a product listing site which allows users to add products for sale. Products can either be listed as either auction or 'buy it now'. 
