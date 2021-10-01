@@ -11,8 +11,8 @@ During the development process I encountered issues uploading files to the virtu
 ## Technologies used
 This project was built with HTML, CSS, PHP and MyPHPAdmin. I designed the UI using Figma.
 
-## Demo application
-The app can be used [here](https://e-trading-post.herokuapp.com/index.php)
+## Deployed application
+The deployed app can be used [here](https://e-trading-post.herokuapp.com/index.php)
 
 ### Images
 ![](https://res.cloudinary.com/dbdcclhzw/image/upload/v1632888011/Projects/E-Trading/ET2_avovew.png)
