@@ -43,7 +43,7 @@
                             <td class="hidden"><?php echo $allItems[$i]['category'] ?></td>
                             <td class="hidden"><?php echo '$' . $allItems[$i]['price'] ?></td>
                             <td class="hidden"><?php echo $allItems[$i]['duration'] . ' Days' ?></td>
-                            <td class="hidden"><img src="<?php echo "./public/assets/images/" . $allItems[$i]['image'] ?>" alt="<?php echo $allItems[$i]['title'] ?>"></td>
+                            <td class="hidden"><img src="<?php echo $allItems[$i]['image'] ?>" alt="<?php echo $allItems[$i]['title'] ?>"></td>
                             <td class="hidden"><a href="./views/updateitem.php?id=<?php echo $allItems[$i]['itemId']?>">Update</a></td>
                         </tr>
                 <?php } ?>
