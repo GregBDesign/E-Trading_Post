@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once($_SERVER['DOCUMENT_ROOT'] . '/inc/conn.php');
+    require_once($_SERVER['DOCUMENT_ROOT'] . '../inc/conn.php');
 
     unset($_SESSION["errors"]);
     unset($_SESSION["formData"]);
