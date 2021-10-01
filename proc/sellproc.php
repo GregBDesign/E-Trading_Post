@@ -39,7 +39,7 @@
         $image = imgUpload();
     }
     if($_FILES["image"]["name"] == "" && !isset($_GET['id'])){
-        $image = 'default.png';
+        $image = 'https://res.cloudinary.com/dbdcclhzw/image/upload/v1632987253/Projects/E-Trading/default_wuks65.png';
     }
 
     // formReady variable is a flag to be set to true when there are no issues in the error array
